@@ -1,0 +1,8 @@
+<% include ../partials/header %>
+
+<form action="/schedules/<%= currentUser._id %>/city" method="POST">
+	Please input your current city: <input type="text" name="curCity" placeholder="curCity">
+	<button type="submit" class="btn btn-primary" >Submit</button>
+</form>
+
+<% include ../partials/footer %>

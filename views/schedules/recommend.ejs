@@ -1,0 +1,19 @@
+<% include ../partials/header %>
+
+<h1>Recommend</h1>
+<div class="container">
+	<div class = "row">
+		<form action="/schedules/<%= currentUser.id %>" method= "POST">
+			<% activity.forEach(function(activity){ %>
+			<div class="form-group">
+				<input type="radio" name="activity" onclick="chose(this)" value="<%= activity.type%>"><img style="width: 150%; height: 150%" src="<%= activity.image %>">
+			</div>
+				<h4><%= activity.type %></h4>
+			<% }); %>
+			<button type="submit" class="btn btn-primary" >Select!</button>
+		</form>
+		
+	</div>
+</div>
+
+<% include ../partials/footer %>

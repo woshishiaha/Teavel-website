@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+
+<div class="container">
+	<div class = "row">
+	<h1 style = "text-align: center;">Create the tour</h1>	
+		<div style = "width : 30%; margin: 40px auto;">
+		<form class="createForm" action="/tours/<%= tour._id %>?_method=PUT" method="POST">
+			<div class="form-group">
+				Tour Name: <input class="form-control" type="text" value="<%= tour.name %>" name="tour[name]">
+			</div>
+			<div class="form-group">
+				Begin Date: <input class="form-control" type="date" value="<%= tour.beginDate %>" name="tour[beginDate]">
+			</div>
+			<div class="form-group">
+				End Date: <input class="form-control" type="date" value="<%= tour.endDate %>" name="tour[endDate]">
+			</div>
+			<div class="form-group">
+				Begin City: <input class="form-control" type="text" value="<%= tour.beginCity %>" name="tour[beginCity]">
+			</div>
+			<div class="form-group">
+				End City: <input class="form-control" type="text" value="<%= tour.endCity %>" name="tour[endCity]">
+			</div>
+			<div class="form-group">
+				Price($): <input class="form-control" type="number" min="1" value="<%= tour.price %>" name="tour[price]">
+			</div>
+			<div class="form-group">
+				image: <input class="form-control" type="text" value="<%= tour.image %>" name="tour[image]">
+			</div>
+			<div class="form-group">
+				description: <input class="form-control description" type="text" value="<%= tour.description %>" name="tour[description]">
+			</div>
+		<button type="submit" class="btn btn-primary" >Create it!</button>
+		<a href="/tours">back</a>
+		</form>
+		</div>
+	</div>
+</div>
+
+<% include ../partials/footer %>

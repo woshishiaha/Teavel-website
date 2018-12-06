@@ -1,0 +1,42 @@
+<% include ../partials/header %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-md-12">
+			<div class="thumbnail">
+				<img class="img-responsive" src="<%= tour.image %>" >
+				<div class="caption">
+					<h4 class="pull-right">$<%= tour.price %></h4>
+					<h4><a href=""><%= tour.name %></a></h4>
+					<p>Date: <%= tour.beginDate %> to <%= tour.endDate %></p>
+					<p>Begin City: <%= tour.beginCity %>  End City: <%= tour.endCity %></p>
+					<span><p><%= tour.description %></p></span>
+					<p>
+						<em>Edit by KXS</em>	
+					</p>
+					<% if(currentUser && currentUser.isAdmin){ %>
+						<a class="btn btn-danger" href="/tours/<%= tour._id %>/edit">Edit</a>
+						<form class ="delete-form" action="/tours/<%= tour._id %>?_method=DELETE" method = "POST">
+							<button class="btn btn-success">Delete</button>
+						</form>
+					<% } %>
+					<% if(currentUser && !currentUser.isAdmin){ %>
+						<form action="/tours/<%= tour._id %>/<%= currentUser._id %>/show" method="POST">
+							<button  class="btn btn-primary btn">Select!</button>
+						</form>
+					<% } %>
+					
+					<% if(currentUser && currentUser.isAdmin){ %>
+						<a class="btn btn-primary pull-right" href="/tours/<%= tour._id %>/new">Add Bookings</a>
+					<% } %>
+					<% if(currentUser){ %>
+						<a class="btn btn-info pull-right aaa" href="/tours/<%= tour._id%>/show">Check all the bookings</a>
+					<% } %>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<% include ../partials/footer %>

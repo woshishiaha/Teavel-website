@@ -1,0 +1,36 @@
+<% include ../partials/header %>
+
+
+<div class="container">
+	<div class = "row">
+	<h1 style = "text-align: center;">Create a booking</h1>	
+		<div style = "width : 30%; margin: 40px auto;">
+		<form class="createForm" action="/tours/<%= tour._id %>/bookings" method="POST">
+			<div class="form-group">
+				Start Time: <input type="time" name="booking[startTime]">
+			</div>
+			<div class="form-group">
+				End Time: <input type="time" name="booking[endTime]">
+			</div>
+			<div class="form-group">
+				Start Date: <input type="date" name="booking[beginDate]">
+			</div>
+			<div class="form-group">
+				End date: <input type="date" name="booking[endDate]">
+			</div>
+			
+			<% activity.forEach(function(activity){ %>
+			<div class="form-group">
+				<input type="checkbox" name="activity" onclick="chose(this)" value="<%= activity.type%>"><img style="width: 150%; height: 150%" src="<%= activity.image %>">
+			</div>
+				<h4><%= activity.type %></h4>
+			<% }); %>
+			<button type="submit" class="btn btn-primary" >Create it!</button>
+		<a href="/tours">back</a>
+		</form>
+		</div>
+	</div>
+</div>
+
+
+<% include ../partials/footer %>

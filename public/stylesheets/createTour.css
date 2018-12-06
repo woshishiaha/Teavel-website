@@ -1,0 +1,9 @@
+#description{
+	width: 400px;
+	height: 150px;
+}
+
+.createForm, form{
+	width: 100px;
+	height: 50px;
+}

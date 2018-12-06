@@ -1,0 +1,28 @@
+<% include ../partials/header %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-md-12">
+			<div class="thumbnail">
+				<img class="img-responsive" src="<%= activity.image %>" >
+				<div class="caption-full">
+					<h4 class="pull-right">$ <%= activity.cost %></h4>
+					<h4><a href=""><%= activity.type %></a></h4>
+					<p>Duration: <%= activity.duration %></p>
+					<p>Location: <%= activity.location %></p>
+					<span><p><%= activity.description %></p></span>
+					<p>
+						<em>Please contact me: <%=activity.contactInformation%></em>	
+					</p>
+					<a class="btn btn-danger" href="#">Select!</a>
+					<form class ="delete-form" action="/activities/<%= activity._id %>?_method=DELETE" method = "POST">
+						<button class="btn btn-success">Delete</button>
+					</form>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<% include ../partials/footer %>

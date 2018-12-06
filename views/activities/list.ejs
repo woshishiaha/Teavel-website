@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+
+<div class = "container">
+	<header class = "jumbotron">
+		<div class = "container">
+			<h1>Activities</h1>
+			<p>
+				<a class = "btn btn-primary btn-lg" href="/activities/new">	Create another activity
+				</a>
+				<% if(currentUser && !currentUser.isAdmin){ %>
+					<a class="btn btn-primary btn-lg" href="/tours">Please select your tour!</a>
+				<% } %>
+				
+			</p>
+		</div>
+	</header>
+
+	<div class = "row text-center" style = "display:flex; flex-wrap: wrap;">
+		<% activity.forEach(function(activity){ %>
+			<div class = "col-md-3 col-sm-6">
+				<div class = "caption">
+					<h4><%= activity.type %></h4>
+				</div>
+				<div class = "thumbnail">
+					<img src="<%= activity.image %>">
+					<div class="description">
+				</div>
+					<a href="/activities/<%= activity._id %>" class="btn btn-primary">View</a>
+				</div>
+			</div>
+		<% }); %>
+	</div>
+</div>
+
+<% include ../partials/footer %>

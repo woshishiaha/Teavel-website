@@ -1,0 +1,16 @@
+<% include ../partials/header %>
+
+<% user.tours.forEach(function(userTours){ %>
+	<% tours.forEach(function(tours){ %>
+		<% if(userTours._id.equals(tours._id)) { %>
+		<h1><a href="/tours/<%= tours._id %>"><%= tours.name %></a></h1>
+		<form class ="delete-form" action="/tours/<%= tours._id %>/<%= user._id %>/show?_method=DELETE" method = "POST">
+			<button class="btn btn-danger">Delete</button>
+		</form>
+		<% } %>
+	<% }) %>
+	
+<% }) %>
+
+<% include ../partials/footer %>
+

@@ -1,0 +1,59 @@
+<% include ../partials/header %>
+
+<% if(currentUser && currentUser.isAdmin){ %>
+	<h1>You are an admin</h1>
+<% } %>
+
+<div class = "container">
+	<header class = "jumbotron">
+		<div class = "container">
+			<h1>Welcom to Travel!</h1>
+			<p>
+				<% if(currentUser && currentUser.isAdmin){ %>
+					<a class = "btn btn-primary btn-lg" href="/tours/create">	Create a tour
+					</a>
+					<a class = "btn btn-primary btn-lg" href="/activities/new">	Create a activity
+					</a>
+				<% } %>
+				
+				<% if(currentUser && !currentUser.isAdmin){ %>
+					<a class="btn btn-primary btn-lg" href="/schedules/<%= currentUser._id %>">View my schedules</a>
+					<a class="btn btn-primary btn-lg" href="/<%= currentUser._id %>/show">View my tours</a>
+				<% } %>
+				
+
+				<a class = "btn btn-primary btn-lg" href="/activities">	View the activities
+				</a>
+			</p>
+		</div>
+	</header>
+
+
+
+
+	<div class = "row text-center" style = "display:flex; flex-wrap: wrap;">
+		<% tour.forEach(function(tour){ %>
+			<div class = "col-md-3 col-sm-6">
+				<div class = "caption">
+					<h4><%= tour.name %></h4>
+				</div>
+				<div class = "thumbnail">
+					<img src="<%= tour.image %>">
+					<div class="description">
+						<p><%- tour.description.substring(0, 20) %>...</p>
+					</div>
+						<% if(currentUser && !currentUser.isAdmin){ %>
+							<p>
+								<form id="select" action="/tours/<%= tour._id %>/<%= currentUser._id %>/show" method="POST">
+									<button  class="btn btn-primary btn">Select!</button>
+								</form>
+							</p>
+						<% } %>	
+						<a href="/tours/<%= tour._id %>" class="btn btn-primary ">View</a>								
+				</div>
+			</div>
+		<% }); %>
+	</div>
+</div>
+
+<% include ../partials/footer %>

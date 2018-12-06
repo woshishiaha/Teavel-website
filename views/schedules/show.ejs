@@ -1,0 +1,24 @@
+<% include ../partials/header %>
+
+
+	
+
+<% user.schedules.forEach(function(schedule){ %>
+	<% activity.forEach(function(activity){ %>
+			<% if(schedule.name === activity.type) { %>
+				<h1><%= schedule.date %></h1>
+				<h2><%= schedule.beginTime %> - <%= schedule.endTime %></h2>
+				<a href="/activities/<%= activity._id %>"><%= schedule.name %></a>
+				<form class ="delete-form" action="/schedules/<%= schedule._id %>?_method=DELETE" method = "POST">
+							<button class="btn btn-danger">Delete</button>
+				</form>
+			<% }  %>
+		<% }); %>
+<% }); %>
+
+<h3><a href="/schedules/<%= user._id %>/city">Create schedule!</a></h3>
+
+
+
+
+<% include ../partials/footer %>

@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+
+
+
+<% tour.bookings.forEach(function(booking){ %>
+	<% activity.forEach(function(activity){ %>
+			<% if(booking.activityType === activity.type){ %>
+					<li>
+						<ul><strong>name: <%= activity.type %></strong></ul>
+						<ul>time: <%= booking.startTime %> - <%= booking.endTime %></ul>
+						<ul>date: <%= booking.beginDate %> - <%= booking.endDate %></ul>
+						<ul>location: <%= activity.location%></ul>
+						<ul>duration: <%= activity.duration%></ul>
+						<ul>cost($): <%= activity.cost %></ul>
+						<ul><img src="<%= activity.image %>"></ul>
+						<ul>contact information: <%= activity.contactInformation%></ul>
+						<ul>description: <%= activity.description %></ul>
+					</li>
+					
+				<% } %>
+		<% }); %>
+<% }); %>
+
+<a class="btn btn-success" href="/tours/<%= tour._id %>"> Back</a>
+
+
+
+
+<% include ../partials/footer %>

@@ -1,0 +1,61 @@
+<% include ../partials/header %>
+
+<!-- // Tour.create({
+// 	name: "YYY",
+// 	beginDate: "2018",
+// 	endDate: "2019",
+// 	beginCity: "Miami",
+// 	endCity: "LA",
+// 	price: "50",
+// 	image: "https://images.unsplash.com/photo-1534077293576-17f7f6624a1a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=177032c412cb37c0e01b3edf7f4eaa3e&auto=format&fit=crop&w=634&q=80",
+// 	description: "sadasdasd"
+// }, function(err, tour){
+// 	if(err){
+// 		console.log(err);
+// 	} else {
+// 		console.log("Created~!");
+// 		console.log(tour);
+// 	}
+// }); -->
+
+
+
+<div class="container">
+	<div class = "row">
+	<h1 style = "text-align: center;">Create the tour</h1>	
+		<div style = "width : 30%; margin: 40px auto;">
+		<form class="createForm" action="/tours" method="POST">
+			<div class="form-group">
+				Tour Name: <input type="text" name="tour[name]">
+			</div>
+			<div class="form-group">
+				Begin Date: <input type="date" name="tour[beginDate]">
+			</div>
+			<div class="form-group">
+				End Date: <input type="date" name="tour[endDate]">
+			</div>
+			<div class="form-group">
+				Begin City: <input type="text" name="tour[beginCity]">
+			</div>
+			<div class="form-group">
+				End City: <input type="text" name="tour[endCity]">
+			</div>
+			<div class="form-group">
+				Price($): <input type="number" min="1" name="tour[price]">
+			</div>
+			<div class="form-group">
+				image: <input type="text" name="tour[image]">
+			</div>
+			<div class="form-group">
+				description: <textarea id="description" name="tour[description]"></textarea>
+			</div>
+		<button type="submit" class="btn btn-primary" >Create it!</button>
+		<a href="/tours">back</a>
+		</form>
+		</div>
+	</div>
+</div>
+
+
+<% include ../partials/footer %>
+

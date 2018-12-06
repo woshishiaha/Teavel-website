@@ -1,0 +1,29 @@
+.thumbnail img{
+	width: 100%;
+}
+
+.thumbnail{
+	padding: 0;
+}
+
+.thumbnail .caption-full{
+	padding: 9px;
+}
+
+.delete-form{
+	display: inline;
+}
+
+#select{
+	margin: 0 auto;
+}
+
+.aaa{
+	position: relative;
+	bottom: 40px;
+}
+
+.description{
+	width: 300px;
+	height: 100px;
+}
